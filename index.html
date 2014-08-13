@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo list</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#submit').click(function() {
+          var item = document.getElementById('field_1').value;
+          $('#list').prepend("<li><a href='#' style='text-decoration:none;'>" + item + "</a></li>");
+        });
+
+        $('#list').on('click', 'li', function() {
+          $(this).remove();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Todo list</h1>
+    </header>
+    <article>
+      <ul id="list">
+      </ul>
+    </article>
+    <form onsubmit="event.preventDefault()" method="post"> <!-- Prevent refresh of page -->
+      <p>
+        <label for="field_1">
+          <span>Input Todo</span>
+          <input type="text" id="field_1" name="todo_field">
+        </label>
+        <button id="submit">Submit</button>
+      </p>
+    </form>
+    <footer>
+      <h5> By Philip Nguyen </h5>
+    </footer>
+  </body>
+</html>
